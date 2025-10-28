@@ -1,16 +1,53 @@
-# React + Vite
+# Alex's Book Finder 📚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎯 User Requirement & Solution
 
-Currently, two official plugins are available:
+**User Persona:** Alex, a college student, needs to find specific books for courses and research.
+**User Need:** The app must allow searching in **"all the ways"** (Title, Author, and ISBN).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Solution Implemented:
 
-## React Compiler
+The application provides a unified search bar where the user can select the search type from a dropdown menu, fulfilling the core requirement of searching by:
+1.  **Title**
+2.  **Author**
+3.  **ISBN**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💻 Technology Stack
 
-## Expanding the ESLint configuration
+* **Framework:** React (Vite)
+* **Data Source:** Open Library Search API
+* **Styling:** Plain CSS and CSS Modules (for responsive grid and card design)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+* **Multi-Modal Search:** Seamlessly switches the API query based on the selected search type (Title, Author, or ISBN).
+* **Responsive Display:** Displays results in a clean, professional, and responsive card grid that adapts to desktop and mobile screens.
+* **Graceful State Handling:** Displays distinct messages for:
+    * Loading books (`Loading...`)
+    * Network or API errors (`Error: ...`)
+    * No results found (`No books found...`)
+* **Book Details:** Each card displays the book's title, author(s), first publication year, and cover image (or a placeholder if no cover is available).
+
+## ⚠️ Note on Author Search (API Behavior)
+
+The `author=` parameter is implemented correctly in the API call. It was observed that:
+* Searching with **full, specific names** (e.g., `J. K. Rowling` or `Agatha Christie`) returns highly accurate results.
+* Searching with **short or vague names** (e.g., `harry`) may cause the Open Library API to return broader, less specific results (acting more like a general keyword search). This is behavior inherent to the external API, not the application logic.
+
+## 🚀 Getting Started (Local Setup)
+
+1.  Clone the repository:
+    ```bash
+    git clone [https://github.com/GhogareS13/Book-finder](https://github.com/GhogareS13/Book-finder)
+    cd Book-finder
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+
+---
